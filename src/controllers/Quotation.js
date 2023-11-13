@@ -14,6 +14,7 @@ const addQuotation = async (req, res) => {
 const getQuotation = async (req, res) => {
     try {
         const quo = await Quotation.findOne({ _id: req.params.id });
+        if (!quo) return res.status(400).json({ error: 'Cotización no encontrada' });
         return res.status(200).json(quo);
     } catch (error) {
         console.log(error);

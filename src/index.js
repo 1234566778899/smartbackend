@@ -11,7 +11,7 @@ app.use(cors({
 }));
 
 app.get('/', (req, res) => {
-    res.send('v.1.0.7')
+    res.send('v.1.0.8')
 })
 
 app.use('/user', require('./routes/User'));
