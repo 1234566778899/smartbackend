@@ -1,10 +1,13 @@
 const { Schema, model } = require('mongoose');
 
 const QuotationSchema = Schema({
+    estado: { type: String, default: 'pendiente' },
     cok: Number,
     comision: Number,
     currency: String,
     customer: { type: Schema.Types.ObjectId, ref: 'user' },
+    reference: Number,
+    real: Number,
     car: {
         brand: String,
         model: String,
@@ -15,6 +18,8 @@ const QuotationSchema = Schema({
         otherDetails: String,
     },
     fee: Number,
+    tem: Number,
+    monto: Number,
     initialDue: Number,
     finalDue: Number,
     frecuencyPay: Number,
@@ -31,11 +36,23 @@ const QuotationSchema = Schema({
     totalRisk: Number,
     totalComi: Number,
     totalPortes: Number,
+    totalAdm: Number,
     tir: Number,
     tasaDes: Number,
     TCEA: Number,
     van: Number,
     initialCost: Number,
+    notariales: Number,
+    registrales: Number,
+    tasacion: Number,
+    comEstudio: Number,
+    comActivacion: Number,
+    porcInicial: Number,
+    porcFinal: Number,
+    tasaInteres: Number,
+    tipoTasa: String,
+    periodo: Number,
+    porcRisk: Number,
     flows: [
         {
             n: Number,
