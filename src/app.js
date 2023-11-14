@@ -8,7 +8,7 @@ const port = process.env.PORT || 4000;
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('v.1.0.9')
+    res.send('v.1.0.10')
 })
 
 app.use('/user', require('./routes/User'));
