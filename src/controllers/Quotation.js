@@ -121,4 +121,11 @@ const updateState = async (req, res) => {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 }
-module.exports = { addQuotation, getQuotations, deleteQuotation, getDateAndQuantity, getQuotation, updateState, addReference }
+const show = async (req, res) => {
+    try {
+        return res.status(200).json({ ok: 'Mensaje de ejemplo' });
+    } catch (error) {
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+module.exports = { show, addQuotation, getQuotations, deleteQuotation, getDateAndQuantity, getQuotation, updateState, addReference }
