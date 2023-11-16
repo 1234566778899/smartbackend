@@ -8,8 +8,7 @@ const register = async (req, res) => {
         if (password.length < 4) return res.status(400).json({ error: 'La contraseña minimo 4 caracteres' });
         let user = new User(req.body);
         const userCreated = await user.save();
-        req.id = userCreated._id;
-        return res.status(200).json({ ok: 'Su cuenta sido registrado correctamente'});
+        return res.status(200).json({ ok: 'Su cuenta sido registrado correctamente' });
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
@@ -20,8 +19,8 @@ const login = async (req, res) => {
         const { username, email, password } = req.body
         const userFounded = await User.findOne({ $or: [{ username }, { email }] });
         if (!userFounded) return res.status(400).json({ error: 'Usuario no encontrado' });
-        req.id = userFounded._id;
-        if (password == userFounded.password && userFounded.active) return res.status(200).json({ id: userFounded._id });
+        if (!userFounded.active) return res.status(400).json({ error: 'El usuario no esta activo' });
+        if (password == userFounded.password) return res.status(200).json({ id: userFounded._id });
         return res.status(400).json({ error: 'Contraseña incorrecta' });
     } catch (error) {
         console.log(error);
