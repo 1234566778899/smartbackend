@@ -42,19 +42,6 @@ const getQuotations = async (req, res) => {
         let quotations = await Quotation.aggregate([
             [
                 {
-                    $lookup: {
-                        from: 'users',
-                        localField: 'customer',
-                        foreignField: '_id',
-                        as: 'customer'
-                    }
-                },
-                {
-                    $unwind: {
-                        path: '$customer'
-                    }
-                },
-                {
                     $match: query
                 },
                 {

@@ -8,7 +8,6 @@ const UserSchema = Schema({
     email: String,
     monthly_income: Number,
     address: String,
-    email: String,
     telephone: String,
     documentType: String,
     documentNumber: String,

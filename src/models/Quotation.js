@@ -5,7 +5,15 @@ const QuotationSchema = Schema({
     cok: Number,
     comision: Number,
     currency: String,
-    customer: { type: Schema.Types.ObjectId, ref: 'user' },
+    customer: {
+        name: String,
+        lname: String,
+        email: String,
+        address: String,
+        telephone: String,
+        documentType: String,
+        documentNumber: String,
+    },
     reference: Number,
     real: Number,
     car: {
