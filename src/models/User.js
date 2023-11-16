@@ -11,7 +11,8 @@ const UserSchema = Schema({
     email: String,
     telephone: String,
     documentType: String,
-    documentNumber: String
+    documentNumber: String,
+    active: Boolean
 }, {
     timestamps: true
 })
