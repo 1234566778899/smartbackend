@@ -12,7 +12,7 @@ const UserSchema = Schema({
     telephone: String,
     documentType: String,
     documentNumber: String,
-    active: Boolean
+    active: { type: Boolean, default: false }
 }, {
     timestamps: true
 })
